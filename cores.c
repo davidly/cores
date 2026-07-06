@@ -435,6 +435,7 @@ static LRESULT CALLBACK wndproc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 
 int WINAPI WinMain(HINSTANCE hi, HINSTANCE hp, LPSTR cmd, int show)
 {
+    UNREFERENCED_PARAMETER( show );
     WNDCLASSA wc;
     HWND hwnd;
     MSG msg;
@@ -478,23 +479,15 @@ int WINAPI WinMain(HINSTANCE hi, HINSTANCE hp, LPSTR cmd, int show)
     if (!RegisterClassA(&wc))
         fatal_exit();
 
-    hwnd = CreateWindowExA(WS_EX_TOOLWINDOW,
-                           wc.lpszClassName,
-                           "Core Meter",
-                           WS_POPUP | WS_VISIBLE,
-                           posLeft,
-                           posTop,
-                           width,
-                           height,
-                           NULL,
-                           NULL,
-                           hi,
-                           NULL);
+    hwnd = CreateWindowExA(WS_EX_TOOLWINDOW, wc.lpszClassName, "Core Meter", WS_POPUP, posLeft, posTop, width, height, NULL, NULL, hi, NULL);
 
     if (!hwnd)
         fatal_exit();
 
-    ShowWindow(hwnd, show);
+    // show the window, but don't steal the focus, since nobody wants to type in this app
+
+    
+    ShowWindow( hwnd, /*show |*/ SW_SHOWNOACTIVATE );
     UpdateWindow(hwnd);
     poll_power(hwnd);
 
