@@ -21,6 +21,8 @@ Generally, cores are sorted from most performant to most efficient.
 
 Here are some example cores app states for an Intel(R) Core(TM) i9-14900KF CPU (8 performance and 16 efficiency cores):
 
+----
+
   ![Alt Text](images/1.png)
     
     Three performance cores are idle and five are at full speed running code (though perhaps not at 100% usage).
@@ -57,3 +59,4 @@ Here are some example cores app states for an Intel(R) Core(TM) i9-14900KF CPU (
 
     Performance cores are at idle, but background tasks assigned to efficiency cores are busy.
     
+----
