@@ -1,6 +1,8 @@
 # cores
 Cores is a Windows app to show CPU core states: busy, idle, or thermally throttled.
 
+![Core Demo](./images/cores.gif)
+
 Cores.exe creates a window without a title bar or menu. You can move the window by clicking and dragging the window.
 
 The window position is persisted in the registry when cores exits. When cores is restarted it is placed at its last position.
